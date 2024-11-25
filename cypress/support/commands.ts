@@ -23,3 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add('hasPseudoElement', {prevSubject: true}, (subject: HTMLElement, pseudo: string) => {
+    return window.getComputedStyle(subject[0], pseudo).content !== 'none';
+  });
